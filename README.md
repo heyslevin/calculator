@@ -1,0 +1,1 @@
+This is a calculator exercise, part of the Odin Project javascript course.
