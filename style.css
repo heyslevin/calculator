@@ -1,7 +1,33 @@
+html,body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+}
+
 .container {
+	height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.rows {
 	display:flex;
 	width:248px;
+	height:auto;
 	flex-wrap: wrap;
+
+  	align-items: center;
+  	justify-content: center;
+
+  	position:absolute;
+  	margin: 0 auto;
+
 }
 
 .button {
@@ -11,4 +37,9 @@
 	border: 1px solid black;
 	align-items:center;
 	justify-content:center;
+
+}
+
+.grow {
+	flex-basis: 100%;
 }
