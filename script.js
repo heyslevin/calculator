@@ -1,3 +1,25 @@
+const disp = "";
+
+
+
+//Press Down
+
+function pressdown() {
+	alert('Yes');
+};
+
+//Button Selectors
+
+const button = document.querySelectorAll(".button");
+
+
+for (let i = 0; i < button.length; i++) {
+	button[i].addEventListener('click',pressdown);
+}
+
+
+
+
 function add(a,b) {
 	return a + b;
 }
