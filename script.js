@@ -1,11 +1,15 @@
-const disp = "";
 
+
+
+//Display
+let disp = document.querySelector('[data-key="display"]')
 
 
 //Press Down
 
-function pressdown() {
-	alert('Yes');
+function pressdown(e) {
+
+	disp.textContent += this.dataset.key;
 };
 
 //Button Selectors
