@@ -3,6 +3,9 @@ let a = 0;
 let b = 0;
 let operator = "";
 
+//Result Checker. Checks if = was pressed before
+let rc = 0;
+
 //Display Selector
 let disp = document.querySelector('[data-key="display"]')
 
@@ -11,7 +14,10 @@ let disp = document.querySelector('[data-key="display"]')
 
 function pressdown(e) {
 
-	disp.textContent += this.dataset.key;
+
+// Clears display if rc = 1, because "="" was pressed before
+	rc == 0 ? disp.textContent += this.dataset.key : disp.textContent = this.dataset.key;
+	rc = 0;
 };
 
 function cleanup() {
@@ -20,7 +26,14 @@ function cleanup() {
 
 function opcap() {
 	operator = this.dataset.key;
-	
+	a = parseInt(disp.textContent);
+	disp.textContent = "";
+}
+
+function results() {
+	b = parseInt(disp.textContent);
+	disp.textContent = operate(a,b,operator);
+	rc = 1;
 
 }
 
@@ -31,11 +44,14 @@ function opcap() {
 const button = document.querySelectorAll(".numbutton");
 const clear = document.querySelector(".clear");
 const opbutton = document.querySelectorAll(".opbutton")
+const equal = document.querySelector('[data-key="="]')
 
 
 //Event Listener for regular buttons
 
 clear.addEventListener('click',cleanup)
+equal.addEventListener('click',results)
+
 
 for (let i = 0; i < button.length; i++) {
 	button[i].addEventListener('click',pressdown);
