@@ -1,6 +1,6 @@
 
-let a = 0;
-let b = 0;
+let a = "";
+let b = "";
 let operator = "";
 
 //Result Checker. Checks if = was pressed before
@@ -16,24 +16,42 @@ function pressdown(e) {
 
 
 // Clears display if rc = 1, because "="" was pressed before
-	rc == 0 ? disp.textContent += this.dataset.key : disp.textContent = this.dataset.key;
+	if (rc === 0 || disp.textContent == "") {
+		disp.textContent += this.dataset.key
+
+	} else {
+		disp.textContent = this.dataset.key;
+	}
+	
 	rc = 0;
 };
 
 function cleanup() {
 	disp.textContent = "";
+	a = "";
+	b = "";
 }
 
 function opcap() {
-	operator = this.dataset.key;
-	a = parseInt(disp.textContent);
-	disp.textContent = "";
+	if (a === "") {
+		a = parseInt(disp.textContent);
+		disp.textContent = "";
+		operator = this.dataset.key;
+	} else { 
+		b = parseInt(disp.textContent);
+		a = parseInt(operate(a,b,operator));
+		operator = this.dataset.key;
+
+		disp.textContent = "";
+	}
 }
 
 function results() {
 	b = parseInt(disp.textContent);
 	disp.textContent = operate(a,b,operator);
 	rc = 1;
+	a = "";
+	b = "";
 
 }
 
