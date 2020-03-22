@@ -2,6 +2,10 @@ html,body {
 	height: 100%;
 }
 
+* {
+	font-family: Graphik Regular;
+}
+
 body {
 	margin: 0;
 }
@@ -30,13 +34,47 @@ body {
 
 }
 
-.numbutton, .opbutton, .equals {
+.numbutton, .display {
 	display: flex;
 	height: 60px;
 	width: 60px;
 	border: 1px solid black;
 	align-items:center;
 	justify-content:center;
+
+}
+
+.numbutton:hover {
+	display: flex;
+	height: 60px;
+	width: 60px;
+	border: 1px solid black;
+	align-items:center;
+	justify-content:center;
+	background-color: blue;
+	transition: all .7s ease;
+
+}
+
+.opbutton {
+	display: flex;
+	height: 60px;
+	width: 60px;
+	border: 1px solid black;
+	align-items:center;
+	justify-content:center;
+	background-color: red;
+
+}
+
+.equals {
+	display: flex;
+	height: 60px;
+	width: 60px;
+	border: 1px solid black;
+	align-items:center;
+	justify-content:center;
+	background-color: green;
 
 }
 
@@ -47,6 +85,7 @@ body {
 	border: 1px solid black;
 	align-items:center;
 	justify-content:center;
+	background-color: yellow;
 
 }
 

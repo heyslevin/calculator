@@ -26,10 +26,15 @@ function pressdown(e) {
 	rc = 0;
 };
 
-function cleanup() {
-	disp.textContent = "";
+function zeroout() {
 	a = "";
 	b = "";
+	operator = "";
+}
+
+function cleanup() {
+	disp.textContent = "";
+	zeroout();
 }
 
 function opcap() {
@@ -47,15 +52,23 @@ function opcap() {
 }
 
 function results() {
+
 	b = parseInt(disp.textContent);
-	disp.textContent = operate(a,b,operator);
+
+
+	if (isNaN(b) || operator == "") {
+		disp.textContent = "ERROR START AGAIN";
+		zeroout();
+		rc = 1;
+	} else {
+
+
+	disp.textContent = +parseFloat(operate(a,b,operator)).toFixed(3);
 	rc = 1;
-	a = "";
-	b = "";
+	zeroout();
+	}
 
 }
-
-
 
 //Button Selectors
 
